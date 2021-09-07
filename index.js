@@ -13,9 +13,6 @@ let app = express();
 // Import routes
 let apiRoutes = require("./route/api-routes");
 
-// Import MongoDB Env
-require('dotenv').config();
-
 // Configure bodyparser to handle post requests
 app.use(bodyParser.urlencoded({
     extended: true
@@ -44,8 +41,16 @@ app.get('/', (req, res) => res.send('Hello World with Express'));
 // Use Api routes in the App
 app.use('/goto', apiRoutes);
 
-
 // Configure app to handle rout errors
+app.use('/', (req, res, next) => {
+    try {
+        throw new Error("Invalid page")
+    } 
+    catch (error) {
+        next(error)
+    }
+})
+
 app.use((error, req, res, next) => {
     console.log(error);
     const status = error.statusCode || 500;
