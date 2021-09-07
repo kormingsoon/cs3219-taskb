@@ -112,3 +112,44 @@ In this segment we will run and observe the GET, POST, PUT and DELETE API calls 
     </div> 
 
 ### Error-Resiliency Testing
+In the error-resiliency testing, we will be testing the error resiliency with the hosted domain.
+
+Again, the domain is https://cs3219-ay2122-task-b.herokuapp.com/
+
+a. Test Case 1:
+
+https://cs3219-ay2122-task-b.herokuapp.com/999999999
+
+![](./img/testcase1.png)
+
+b. Test Case 2:
+
+https://cs3219-ay2122-task-b.herokuapp.com/goto/123r15fdsafdsa
+
+![](./img/testcase2.png)
+
+c. Test Case 3:
+
+https://cs3219-ay2122-task-b.herokuapp.com/goto/contacts/123456
+
+![](./img/testcase3.png)
+
+d. Test Case 4:
+
+https://cs3219-ay2122-task-b.herokuapp.com/goto/contacts/613736c191b3b15deed7b1be
+
+![](./img/testcase4.png)
+
+5. Test Case 5:
+
+https://cs3219-ay2122-task-b.herokuapp.com/goto/contacts/123456778
+with ```DELETE``` request.
+
+![](./img/testcase5.png)
+
+6. Test Case 6:
+```PUT``` request with empty input field.
+![](./img/testcase6.png)
+
+
+
