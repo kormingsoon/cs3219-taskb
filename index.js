@@ -44,6 +44,7 @@ app.get('/', (req, res) => res.send('Hello World with Express'));
 // Use Api routes in the App
 app.use('/goto', apiRoutes);
 
+
 // Configure app to handle rout errors
 app.use((error, req, res, next) => {
     console.log(error);
