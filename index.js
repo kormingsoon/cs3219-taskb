@@ -13,6 +13,9 @@ let app = express();
 // Import routes
 let apiRoutes = require("./route/api-routes");
 
+// Import MongoDB Env
+require('dotenv').config();
+
 // Configure bodyparser to handle post requests
 app.use(bodyParser.urlencoded({
     extended: true
@@ -20,8 +23,8 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 // Connect to Mongoose and set connection variable
-
-mongoose.connect('mongodb+srv://kormingsoon:O4k8UuoHdPgfVLVL@cluster0.opehp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', { 
+const smth = process.env.MONGOSMTH;
+mongoose.connect('mongodb+srv://kormingsoon:' + smth + '@cluster0.opehp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', { 
     useNewUrlParser: true
 });
 var db = mongoose.connection;
