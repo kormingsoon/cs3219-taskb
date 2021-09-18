@@ -20,7 +20,8 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 // Connect to Mongoose and set connection variable
-mongoose.connect('mongodb://localhost/cs3219', { 
+
+mongoose.connect('mongodb+srv://kormingsoon:O4k8UuoHdPgfVLVL@cluster0.opehp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', { 
     useNewUrlParser: true
 });
 var db = mongoose.connection;
@@ -41,6 +42,15 @@ app.get('/', (req, res) => res.send('Hello World with Express'));
 app.use('/goto', apiRoutes);
 
 // Configure app to handle rout errors
+app.use('/', (req, res, next) => {
+    try {
+        throw new Error("Invalid page")
+    } 
+    catch (error) {
+        next(error)
+    }
+})
+
 app.use((error, req, res, next) => {
     console.log(error);
     const status = error.statusCode || 500;

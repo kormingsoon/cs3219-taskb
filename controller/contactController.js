@@ -59,7 +59,7 @@ exports.view = function (req, res) {
         console.log(err.statusCode)
         res.status(404).json({
             status: "failure",
-            message: 'Contact cannot be found. Key in the correct id. Go back to /api/contacts/ to see the list.'
+            message: 'Contact cannot be found. Key in the correct id. Go back to /goto/contacts/ to see the list.'
         });
     })
 };
@@ -95,7 +95,7 @@ exports.update = function (req, res) {
         console.log(err.statusCode)
         res.status(404).json({
             status: "failure",
-            message: 'Contact cannot be found. Key in the correct id. Go back to /api/contacts/ to see the list.'
+            message: 'Contact cannot be found. Key in the correct id. Go back to /goto/contacts/ to see the list.'
         });
     })
 };
@@ -124,7 +124,7 @@ exports.delete = function (req, res) {
         console.log(err.statusCode)
         res.status(404).json({
             status: "failure",
-            message: 'Contact cannot be found. Key in the correct id. Go back to /api/contacts/ to see the list.'
+            message: 'Contact cannot be found. Key in the correct id. Go back to /goto/contacts/ to see the list.'
         });
     })
 };
