@@ -8,6 +8,33 @@ Github Repo: https://github.com/kormingsoon/cs3219-taskb
 
 Credit: https://medium.com/@dinyangetoh/how-to-build-simple-restful-api-with-nodejs-expressjsand-mongodb-99348012925d
 
+I have only completed Task B1 and Task B4.
+
+Note that in the section, I am segmenting Task B1 and Task B4 separately. The sections are as follows:
+
+---
+## **Task B4**
+
+In task B4, I have implemented the react front end. The styling can be found in style.css and bootstrap has been comporated.
+
+1. Demonstration of API calls with front end.
+   
+    1.1 POST & GET
+    <div style="text-align:center">
+        <img src="./img/b4_get&post.png">
+    </div>
+    1.2 PUT: upon clicking the edit button, a pop up window will appear allowing the user to edit the old inputs. Observe that the ID remains the same.
+    <div style="text-align:center">
+        <img src="./img/b4_put1.png">
+        <img src="./img/b4_put2.png">
+    </div>
+    1.3 DELETE : upon clicking the delete button. The contact list is now empty.
+    <div style="text-align:center">
+        <img src="./img/b4_delete.png">
+    </div>
+
+---
+
 ## **Task B1**
 - Local Deployment
 - Hosted Deployment
@@ -151,5 +178,4 @@ with ```DELETE``` request.
 ```PUT``` request with empty input field.
 ![](./img/testcase6.png)
 
-
-
+--- 
