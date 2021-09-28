@@ -61,6 +61,25 @@ describe('Task DELETE API', () => {
     })
 })
 
+describe('Task POST API', () => {
+
+    step('POST API', function() {
+        const contact =  {
+            name: "andreatankyyy",
+            email: "andreatankyyy@gmail.com"
+        }
+        chai.request(app)
+        .post("/goto/contacts")
+        .send(contact)
+        .end((err, res) => {
+            res.should.have.status(200);
+            res.body.message.should.be.eq('New contact created!')
+        });
+
+    })
+});
+
+
 describe('Task PUT API Testing', () => {
     describe('Add contact and edit', () => {
         before( async function() {  
