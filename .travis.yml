@@ -1,21 +1,18 @@
-{
-  "script": [
-    "npm test"
-  ], 
-  "install": [
-    "npm ci"
-  ], 
-  "language": "node_js", 
-  "deploy": {
-    "true": {
-      "branch": "gh-pages"
-    }, 
-    "github-token": "$GITHUB_TOKEN", 
-    "skip-cleanup": true, 
-    "provider": "pages"
-  }, 
-  "cache": "npm", 
-  "node_js": [
-    "12.18.4"
-  ]
-}
+language: node_js
+
+node_js: 
+- 12.18.4
+
+cache: npm
+
+install:
+  - npm ci
+
+script:
+  - npm test
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  on:
+    branch: gh-pages
