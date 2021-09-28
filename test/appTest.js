@@ -61,23 +61,52 @@ describe('Task DELETE API', () => {
     })
 })
 
-describe('Task PUT API', () => {
-
-    step('PUT API', () => {
-        const contactToEditTo =  {
-            name: "counting123",
-            email: "testing@gmail.com"
-        }
-        
-        chai.request(app)
-        .put("/goto/contacts/Kor Ming Soon")
-        .send(contactToEditTo)
-        .end((err, res) => {
-            res.should.have.status(200);
-            res.body.message.should.be.eq('Contact Info updated')
+describe('Task PUT API Testing', () => {
+    describe('Add contact and edit', () => {
+        before( async function() {  
+            const contact =  {
+                name: "andreatankyyy",
+                email: "andreatankyyy@gmail.com"
+            }
+            chai.request(app)
+            .post("/goto/contacts")
+            .send(contact)
+            .end((err, res) => {
+                res.should.have.status(200);
+                res.body.message.should.be.eq('New contact created!')
+            });
         });
+        
+        step('PUT API', () => {
+            const contactToEditTo =  {
+                name: "counting123",
+                email: "testing@gmail.com"
+            }
 
-        chai.request(app).del("/goto/contacts/counting123");
+            chai.request(app)
+            .put("/goto/contacts/andreatankyyy")
+            .send(contactToEditTo)
+            .end((err, res) => {
+                res.should.have.status(200);
+                res.body.message.should.be.eq('Contact Info updated')
+            });
+        })
 
-    })
+    });
+
+
+    // describe('deletion after edit', () => {
+
+    //     step('DELETE API', function() {
+
+    //         chai.request(app)
+    //         .delete("/goto/contacts/counting123")
+    //         .end((err, res) => {
+    //             res.should.have.status(200);
+    //             res.body.message.should.be.eq('Contact deleted')
+    //         });   
+        
+    //     })
+    // })
+
 });
