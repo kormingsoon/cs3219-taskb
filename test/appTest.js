@@ -23,7 +23,7 @@ describe('Task API', () => {
         .end((err, res) => {
             res.should.have.status(200);
             res.body.data.should.be.a('array');
-            res.body.data.length.should.be.eq(1);
+            res.body.message.should.be.eq('Contacts retrieved successfully')
         });
 
     })
