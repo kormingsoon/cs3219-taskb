@@ -59,6 +59,10 @@ app.use((error, req, res, next) => {
  })
 
 // Launch app to listen to specified port
-app.listen(port, function () {
-    console.log("Running cs3219-taskb on port " + port);
-});
+if (!module.parent) {
+    app.listen(port, function () {
+        console.log("Running cs3219-taskb on port " + port);
+    });
+}
+
+module.exports = app

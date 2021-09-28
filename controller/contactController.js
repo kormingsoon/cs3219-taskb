@@ -3,6 +3,11 @@ const { post } = require('../route/api-routes');
 // Import contact model
 Contact = require('../model/contactModel');
 
+mongoose.connect('mongodb+srv://kormingsoon:O4k8UuoHdPgfVLVL@cluster0.opehp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', { 
+    useNewUrlParser: true
+});
+var db = mongoose.connection;
+
 // Handle index actions
 exports.index = function (req, res) {
     Contact.get(function (err, contacts) {
@@ -39,8 +44,8 @@ exports.new = function (req, res) {
 
 // Handle view contact info
 exports.view = function (req, res) {
-    const contactId = req.params.contact_id;
-    Contact.findById(contactId)
+    const contactName = req.params.name;
+    Contact.findOne().where({name: contactName})
     .then(contact => {
         if (!contact) {
             err.statusCode = 404;
@@ -55,7 +60,7 @@ exports.view = function (req, res) {
         if (!err.statusCode) {
             err.statusCode = 500;
         }
-        console.log("your-id-input input in /goto/contacts/<your-id-input> may be wrong.");
+        console.log("VIEW: your-id-input input in /goto/contacts/<your-id-input> may be wrong.");
         console.log(err.statusCode)
         res.status(404).json({
             status: "failure",
@@ -66,8 +71,8 @@ exports.view = function (req, res) {
 
 // Handle update contact info
 exports.update = function (req, res) {
-    const contactId = req.params.contact_id;
-    Contact.findById(contactId)
+    const contactName = req.params.name;
+    Contact.findOne().where({name: contactName})
     .then(contact => {
         if (!contact) {
             err.statusCode = 404;
@@ -91,7 +96,7 @@ exports.update = function (req, res) {
         if (!err.statusCode) {
             err.statusCode = 500;
         }
-        console.log("your-id-input input in /goto/contacts/<your-id-input> may be wrong.");
+        console.log("UPDATE: your-id-input input in /goto/contacts/<your-id-input> may be wrong.");
         console.log(err.statusCode)
         res.status(404).json({
             status: "failure",
@@ -102,8 +107,8 @@ exports.update = function (req, res) {
 
 // Handle delete contact
 exports.delete = function (req, res) {
-    const contactId = req.params.contact_id;
-    Contact.findById(contactId)
+    const contactName = req.params.name;
+    Contact.findOne().where({name: contactName})
     .then(contact => {
         if (!contact) {
             err.statusCode = 404;
@@ -113,14 +118,14 @@ exports.delete = function (req, res) {
                 status: "success",
                 message: 'Contact deleted'
             });
-            return Contact.findByIdAndRemove(contactId);
+            return Contact.findOneAndDelete().where({name: contactName})
         }
     })
     .catch(err => {
         if (!err.statusCode) {
             err.statusCode = 500;
         }
-        console.log("your-id-input input in /goto/contacts/<your-id-input> may be wrong.");
+        console.log("DELETE: your-id-input input in /goto/contacts/<your-id-input> may be wrong.");
         console.log(err.statusCode)
         res.status(404).json({
             status: "failure",
