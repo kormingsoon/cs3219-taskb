@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --require mocha-steps",
+    "test": "mocha --require mocha-steps --exit",
     "start": "node index.js"
   },
   "repository": {
