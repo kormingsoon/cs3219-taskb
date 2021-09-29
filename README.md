@@ -3,7 +3,9 @@
 ## **Student Information**
 
 Name: Kor Ming Soon
+
 Matriculation Number: A0201975A
+
 Github Repo: https://github.com/kormingsoon/cs3219-taskb/tree/taskb2
 
 ## **Task B2**
@@ -31,5 +33,9 @@ The appTest.js tests all API calls of GET, POST, PUT and DELETE.
  <div style="text-align:center">
       <img src="./img/test/travisci.png"> 
       <p align="center"> Travis CI Build</p>
+</div>
+ <div style="text-align:center">
+      <img src="./img/test/npmtesttravis.png"> 
+      <p align="center"> Travis CI Build Test</p>
 </div>
   

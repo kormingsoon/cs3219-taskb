@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --require mocha-steps --exit",
+    "test": "mocha --require mocha-steps --exit --timeout 20000",
     "start": "node index.js"
   },
   "repository": {
